@@ -1,11 +1,11 @@
 {
-  "name": "stravital",
+  "name": "imsyak-1443",
   "version": "0.1.0",
-  "description": "A simple React starter template for your next react application.",
+  "description": "Imsyakiah schedule list for state of Banten, 1443 Hijri / 2022 BC..",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rizkimcitra/stravital.git"
+    "url": "git+https://github.com/rizkimcitra/imsyak-1443.git"
   },
   "scripts": {
     "dev": "tsc && vite",
@@ -50,14 +50,6 @@
     "@types/react": "^17.0.43",
     "@types/react-dom": "^17.0.14"
   },
-  "keywords": [
-    "starter template",
-    "starter template vite react",
-    "react vite tailwindcss",
-    "react",
-    "vite",
-    "tailwindcss"
-  ],
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
