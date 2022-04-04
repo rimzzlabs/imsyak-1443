@@ -19,7 +19,7 @@ export const Footer = () => {
           <Link href='https://github.com/emsifa/api-wilayah-indonesia'>GitHub Emsifa</Link>.
         </p>
         <p>
-          Built with ⚛ by <Link href='https://github.com/rizkimcitra'>Rizki M Citra</Link>
+          Built with ⚛ by <Link href='https://rizkicitra.dev'>Rizki M Citra</Link>
         </p>
       </section>
     </footer>
