@@ -10,7 +10,7 @@ export const DarkMode: React.FunctionComponent = () => {
   return (
     <button
       className={clsx(
-        'inline-flex p-2 rounded-lg transition',
+        'inline-flex p-1.5 md:p-2 rounded-lg transition',
         'bg-theme-2 dark:bg-theme-3 hover:bg-theme-2/80 dark:hover:bg-theme-3/50',
         theme === 'dark' ? 'text-yellow-500' : 'text-theme-4'
       )}
