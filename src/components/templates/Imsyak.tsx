@@ -1,36 +1,16 @@
+import { Spinner } from '@/components/atoms/Spinner'
 import TableImsyak from '@/components/organism/TableImsyak'
 
-import { getImsyak } from '@/services/api'
-import * as atom from '@/stores'
-
-import { Spinner } from '../atoms/Spinner'
-
-import { useAtom } from 'jotai'
-import { useEffect } from 'react'
+import useImsyak from '@/hooks/useImsyak'
 
 const Imsyak = () => {
-  const [data, setData] = useAtom(atom.imsyakList)
-  const [city] = useAtom(atom.city)
-
-  const populate = async () => {
-    setData((prevState) => ({ ...prevState, isLoading: true }))
-    const res = await getImsyak(city)
-    if (res.isError) {
-      setData((prevState) => ({ ...prevState, isLoading: false, isError: true }))
-      return
-    }
-    setData((prevState) => ({ ...prevState, isLoading: false, isError: false, data: res.data }))
-  }
-
-  useEffect(() => {
-    populate()
-  }, [city])
+  const data = useImsyak()
 
   if (data.isLoading && !data.isError) {
     return (
       <div className='w-full min-h-[70vh] flex flex-col items-center justify-center'>
         <Spinner />
-        <p className='mt-4'>Loading...</p>
+        <p className='mt-4'>Loading</p>
       </div>
     )
   }
