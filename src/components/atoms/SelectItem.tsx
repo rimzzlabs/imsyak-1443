@@ -10,7 +10,7 @@ interface SelectItemProps {
   onClick: () => void
 }
 
-export const SelectItem: React.FunctionComponent<SelectItemProps> = ({ name, onClick }) => {
+const SelectItem: React.FunctionComponent<SelectItemProps> = ({ name, onClick }) => {
   const [city] = useAtom(atom.city)
 
   return (
@@ -45,3 +45,5 @@ export const SelectItem: React.FunctionComponent<SelectItemProps> = ({ name, onC
     </Menu.Item>
   )
 }
+
+export default SelectItem

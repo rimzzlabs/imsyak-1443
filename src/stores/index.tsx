@@ -1,3 +1,5 @@
+import { Regency } from '@/services/api/api.type'
+
 import { CityName, ImsyakList, ThemeAtom } from './stores.type'
 
 import { atom } from 'jotai'
@@ -10,6 +12,7 @@ const imsyakInitialState: ImsyakList = {
   isLoading: false
 }
 
+export const regency = atom<Array<Regency>>([])
 export const city = atom(initialState)
 export const imsyakList = atom(imsyakInitialState)
 export const appTheme = atomWithStorage<ThemeAtom>('theme', 'light')

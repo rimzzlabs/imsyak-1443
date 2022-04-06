@@ -1,19 +1,19 @@
-import useCity from '@/hooks/useCity'
-import { Regency } from '@/services/api/api.type'
+import { SelectToggle } from '@/components/atoms/SelectToggle'
 
-import { SelectItem } from '../atoms/SelectItem'
-import { SelectToggle } from '../atoms/SelectToggle'
+import useCity from '@/hooks/useCity'
+import useRegency from '@/hooks/useRegency'
+
+import { Spinner } from '../atoms/Spinner'
 
 import { Menu, Transition } from '@headlessui/react'
 import clsx from 'clsx'
-import { Fragment } from 'react'
+import { Fragment, Suspense, lazy } from 'react'
 
-interface SelectProps {
-  regency: Regency[]
-}
+const SelectItem = lazy(() => import('@/components/atoms/SelectItem'))
 
-const Select: React.FunctionComponent<SelectProps> = ({ regency }) => {
+const Select = () => {
   const { changeCity } = useCity()
+  const regency = useRegency()
 
   return (
     <Menu as='div' className='relative'>
@@ -38,9 +38,19 @@ const Select: React.FunctionComponent<SelectProps> = ({ regency }) => {
           )}
         >
           <div className={clsx('p-1 divide-y', 'divide-theme-2 dark:divide-theme-3')}>
-            {regency.map((prop) => (
-              <SelectItem key={prop.id} name={prop.name} onClick={() => changeCity(prop.name)} />
-            ))}
+            <Suspense
+              fallback={
+                <div className='flex flex-col items-center justify-center w-full h-40'>
+                  <Spinner />
+                  <span>Loading</span>
+                </div>
+              }
+            >
+              {regency.length > 0 &&
+                regency.map((prop) => (
+                  <SelectItem key={prop.id} name={prop.name} onClick={() => changeCity(prop.name)} />
+                ))}
+            </Suspense>
           </div>
         </Menu.Items>
       </Transition>
