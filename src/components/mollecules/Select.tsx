@@ -31,7 +31,7 @@ const Select = () => {
         <Menu.Items
           className={clsx(
             'absolute right-0 w-72 mt-2 origin-top-right',
-            'rounded-lg border transition-all',
+            'rounded-lg border transition-all z-30',
             'border-theme-2 dark:border-theme-3',
             'bg-theme-1 dark:bg-theme-4',
             'focus-within:outline-none focus:ring-2 ring-primary-1'
